@@ -1,0 +1,90 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Giftenor GIFs";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .intro {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .error {
+            color: #D8000C;
+            background-color: #FFBABA;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Giftenor GIFs Luis</h1>
+        <p>Explore exciting GIFs from Giftenor.</p>
+    </div>
+
+    <div class="error">
+        @Model.ErrorMessage
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gif in Model.GiftenorResults)
+            {
+                <tr>
+                    <td>@gif.Id</td>
+                    <td>@gif.Content_Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
